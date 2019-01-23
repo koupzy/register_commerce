@@ -25,8 +25,13 @@ security:
 
             form_login:
                 provider: fos_userbundle
+                remember_me: true
+                check_path: /login_check
+                login_path: /login
                 csrf_token_generator: security.csrf.token_manager
-            logout: true
+            logout:
+                path: /logout
+                invalidate_session: true
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
