@@ -20,9 +20,8 @@ security:
             security: false
 
         main:
-            anonymous: false
+            anonymous: true
             pattern: ^/
-
             form_login:
                 provider: fos_userbundle
                 remember_me: true
@@ -32,7 +31,6 @@ security:
             logout:
                 path: /logout
                 invalidate_session: true
-
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }

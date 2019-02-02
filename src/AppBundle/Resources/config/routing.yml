@@ -1,2 +1,7 @@
+home_page:
+    path: /
+    defaults: {_controller: AppBundle:Home:index}
+    methods: GET
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
