@@ -1,0 +1,5 @@
+sejour_form:
+    path: /exploitant/sejour
+    defaults: { _controller: AppBundle:Exploitant:showSejourForm }
+    methods: POST
+

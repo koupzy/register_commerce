@@ -1,7 +1,15 @@
-home_page:
-    path: /
-    defaults: {_controller: AppBundle:Home:index}
-    methods: GET
+app_activity:
+    resource: "@AppBundle/Controller/ActivityController.php"
+    type:     annotation
+
+app_exploitant:
+    resource: "@AppBundle/Controller/ExploitantController.php"
+    type:     annotation
+
+app_etablissement:
+    resource: "@AppBundle/Controller/EtablissementController.php"
+    type:     annotation
+
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

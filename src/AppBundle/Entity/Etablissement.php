@@ -37,7 +37,7 @@ class Etablissement
 
     /**
      * @var string $origine
-     * @ORM\Column(type="string" ,columnDefinition="ENUM('Création, Achat, Apport, Prise en location gérance, Autre')"
+     * @ORM\Column(type="string" ,columnDefinition="ENUM('Création, Achat, Apport, Prise en location gérance, Autre')")
      */
     private $origine;
 
@@ -68,7 +68,7 @@ class Etablissement
 
     /**
      * @var Activity $activity
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Activity", inversedBy="etablissements", cascade={"persist", "merge", "delete"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Activity", inversedBy="etablissements", cascade={"persist", "merge", "remove"})
      */
     private $activity;
 
@@ -90,7 +90,7 @@ class Etablissement
     /**
      * @return string
      */
-    public function getLocalisation(): string
+    public function getLocalisation(): ?string
     {
         return $this->localisation;
     }
@@ -106,7 +106,7 @@ class Etablissement
     /**
      * @return string
      */
-    public function getAdressePostal(): string
+    public function getAdressePostal(): ?string
     {
         return $this->adressePostal;
     }
@@ -122,7 +122,7 @@ class Etablissement
     /**
      * @return string
      */
-    public function getOrigine(): string
+    public function getOrigine(): ?string
     {
         return $this->origine;
     }
@@ -170,7 +170,7 @@ class Etablissement
     /**
      * @return string
      */
-    public function getEtatModif(): string
+    public function getEtatModif(): ?string
     {
         return $this->etatModif;
     }
@@ -202,7 +202,7 @@ class Etablissement
     /**
      * @return Activity
      */
-    public function getActivity(): Activity
+    public function getActivity(): ?Activity
     {
         return $this->activity;
     }

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Etablissements list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Localisation</th>
+                <th>Adressepostal</th>
+                <th>Origine</th>
+                <th>Precexploit</th>
+                <th>Loueurfond</th>
+                <th>Etatmodif</th>
+                <th>Principale</th>
+                <th>Id</th>
+                <th>Datecreat</th>
+                <th>Datemodif</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etablissement in etablissements %}
+            <tr>
+                <td><a href="{{ path('etablissement_show', { 'id': etablissement.id }) }}">{{ etablissement.localisation }}</a></td>
+                <td>{{ etablissement.adressePostal }}</td>
+                <td>{{ etablissement.origine }}</td>
+                <td>{% if etablissement.precExploit %}{{ etablissement.precExploit|join(', ') }}{% endif %}</td>
+                <td>{% if etablissement.loueurFond %}{{ etablissement.loueurFond|join(', ') }}{% endif %}</td>
+                <td>{{ etablissement.etatModif }}</td>
+                <td>{% if etablissement.principale %}Yes{% else %}No{% endif %}</td>
+                <td>{{ etablissement.id }}</td>
+                <td>{% if etablissement.dateCreat %}{{ etablissement.dateCreat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if etablissement.dateModif %}{{ etablissement.dateModif|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('etablissement_show', { 'id': etablissement.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('etablissement_edit', { 'id': etablissement.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etablissement_new') }}">Create a new etablissement</a>
+        </li>
+    </ul>
+{% endblock %}

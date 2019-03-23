@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Activities list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Enseigne</th>
+                <th>Nomcom</th>
+                <th>Activite</th>
+                <th>Transfert</th>
+                <th>Datedebut</th>
+                <th>Numerorccm</th>
+                <th>Nbresalarie</th>
+                <th>Engageurs</th>
+                <th>Id</th>
+                <th>Datecreat</th>
+                <th>Datemodif</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activity in activities %}
+            <tr>
+                <td><a href="{{ path('activity_show', { 'id': activity.id }) }}">{{ activity.enseigne }}</a></td>
+                <td>{{ activity.nomCom }}</td>
+                <td>{{ activity.activite }}</td>
+                <td>{% if activity.transfert %}Yes{% else %}No{% endif %}</td>
+                <td>{% if activity.dateDebut %}{{ activity.dateDebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ activity.numeroRccm }}</td>
+                <td>{{ activity.nbreSalarie }}</td>
+                <td>{% if activity.engageurs %}{{ activity.engageurs|join(', ') }}{% endif %}</td>
+                <td>{{ activity.id }}</td>
+                <td>{% if activity.dateCreat %}{{ activity.dateCreat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if activity.dateModif %}{{ activity.dateModif|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('activity_show', { 'id': activity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('activity_edit', { 'id': activity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('activity_new') }}">Create a new activity</a>
+        </li>
+    </ul>
+{% endblock %}

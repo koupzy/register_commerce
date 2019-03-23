@@ -14,6 +14,7 @@ use AppBundle\Entity\Etablissement;
 use Doctrine\DBAL\Types\BooleanType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -44,9 +45,16 @@ class EtablissementType extends AbstractType
                 'by_reference' => true
             ])
             ->add('etatModif', TextType::class)
-            ->add('principale', BooleanType::class)
+            ->add('principale', ChoiceType::class, [
+                'choices' => [
+                    'Oui' => true,
+                    'Non' => false
+                ],
+                'label' => 'Principale',
+                'required' => true
+            ])
             ->add('activity', EntityType::class, [
-                'data_class' => Activity::class,
+                'class' => Activity::class,
                 'choice_label' => 'nomCom'
             ]);
     }

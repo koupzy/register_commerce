@@ -28,15 +28,37 @@ class ActivityType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('enseigne', TextType::class)
+        $builder->add('enseigne', TextType::class, [
+            'attr' => [
+                'class' => 'form-control'
+            ]
+        ])
             ->add('nomCom', TextType::class)
             ->add('activite', TextType::class)
-            ->add('transfert', BooleanType::class)
-            ->add('dateDebut', DateTimeType::class)
-            ->add('numeroRccm', TextType::class)
+            ->add('transfert', ChoiceType::class, [
+                'choices' => [
+                    'Oui' => true,
+                    'Non' => false
+                ],
+                'label' => 'Transfert',
+                'required' => true,
+                'attr' => [
+                    'class' => 'form-control form-control-select2'
+                ]
+            ])
+            ->add('dateDebut', DateTimeType::class,[
+                'attr' => [
+                    'class' => 'form-control form-control-select2'
+                ]
+            ])
+            ->add('numeroRccm', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
             ->add('nbreSalarie', IntegerType::class)
             ->add('exploitant', EntityType::class,[
-                'data_class' => Exploitant::class,
+                'class' => Exploitant::class,
                 'choice_label' => 'prenom'
             ])
             ->add('engageurs', CollectionType::class, [

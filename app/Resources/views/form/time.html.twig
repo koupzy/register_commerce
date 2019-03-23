@@ -1,0 +1,9 @@
+{% block time_widget %}
+    {% spaceless %}
+        {% if widget == 'single_text' %}
+            {{ block('field_widget') }}
+        {% else %}
+                {{ form_widget(form.hour, { 'attr': { 'class': 'form-control form-control-select2 col-md-2' } }) }}:{{ form_widget(form.minute, { 'attr': { 'class': 'form-control form-control-select2 col-md-2' } }) }}
+        {% endif %}
+    {% endspaceless %}
+{% endblock time_widget %}

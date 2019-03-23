@@ -24,7 +24,7 @@ class Activity
      * @var string $enseigne
      * @ORM\Column(type="string")
      * @Assert\NotNull(message="ce champ est obligatoire ")
-     * @Assert\NotBlank(veuillez saisir ce champ")
+     * @Assert\NotBlank(message="veuillez saisir ce champ")
      */
     private $enseigne;
 
@@ -32,7 +32,7 @@ class Activity
      * @var string $nomCom
      * @ORM\Column(type="string")
      * @Assert\NotNull(message="ce champ est obligatoire ")
-     * @Assert\NotBlank(veuillez saisir ce champ")
+     * @Assert\NotBlank(message="veuillez saisir ce champ")
      */
     private $nomCom;
 
@@ -40,7 +40,7 @@ class Activity
      * @var string $activite
      * @ORM\Column(type="string")
      * @Assert\NotNull(message="ce champ est obligatoire ")
-     * @Assert\NotBlank(veuillez saisir ce champ")
+     * @Assert\NotBlank(message="veuillez saisir ce champ")
      */
     private $activite;
 
@@ -55,7 +55,7 @@ class Activity
      * @var \DateTime $dateDebut
      * @ORM\Column(type="datetime")
      * @Assert\NotNull(message="ce champ est obligatoire ")
-     * @Assert\NotBlank(veuillez saisir ce champ")
+     * @Assert\NotBlank(message="veuillez saisir ce champ")
      * @Assert\Type(type="DateTime", message="le format de la date n'est pas correcte ")
      */
     private $dateDebut;
@@ -64,7 +64,7 @@ class Activity
      * @var string $numeroRccm
      * @ORM\Column(type="string")
      * @Assert\NotNull(message="ce champ est obligatoire ")
-     * @Assert\NotBlank(veuillez saisir ce champ")
+     * @Assert\NotBlank(message="veuillez saisir ce champ")
      */
     private $numeroRccm;
 
@@ -72,7 +72,7 @@ class Activity
      * @var integer $nbreSalarie
      * @ORM\Column(type="integer")
      * @Assert\NotNull(message="ce champ est obligatoire ")
-     * @Assert\NotBlank(veuillez saisir ce champ")
+     * @Assert\NotBlank(message="veuillez saisir ce champ")
      * @Assert\Type(type="integer")
      */
     private $nbreSalarie;
@@ -85,7 +85,7 @@ class Activity
 
     /**
      * @var Exploitant $exploitant
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Exploitant", inversedBy="activities", cascade={"persist", "merge", "delete" })
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Exploitant", inversedBy="activities", cascade={"persist", "merge", "remove" })
      */
     private $exploitant;
 
@@ -113,7 +113,7 @@ class Activity
     /**
      * @return string
      */
-    public function getEnseigne(): string
+    public function getEnseigne(): ?string
     {
         return $this->enseigne;
     }
@@ -129,7 +129,7 @@ class Activity
     /**
      * @return string
      */
-    public function getNomCom(): string
+    public function getNomCom(): ?string
     {
         return $this->nomCom;
     }
@@ -145,7 +145,7 @@ class Activity
     /**
      * @return string
      */
-    public function getActivite(): string
+    public function getActivite(): ?string
     {
         return $this->activite;
     }
@@ -177,7 +177,7 @@ class Activity
     /**
      * @return \DateTime
      */
-    public function getDateDebut(): \DateTime
+    public function getDateDebut(): ?\DateTime
     {
         return $this->dateDebut;
     }
@@ -193,7 +193,7 @@ class Activity
     /**
      * @return string
      */
-    public function getNumeroRccm(): string
+    public function getNumeroRccm(): ?string
     {
         return $this->numeroRccm;
     }
@@ -209,7 +209,7 @@ class Activity
     /**
      * @return int
      */
-    public function getNbreSalarie(): int
+    public function getNbreSalarie(): ?int
     {
         return $this->nbreSalarie;
     }
@@ -241,7 +241,7 @@ class Activity
     /**
      * @return Exploitant
      */
-    public function getExploitant(): Exploitant
+    public function getExploitant(): ?Exploitant
     {
         return $this->exploitant;
     }

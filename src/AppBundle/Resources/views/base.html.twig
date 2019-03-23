@@ -21,11 +21,9 @@
     {% endblock %}
 
     {% block scripts %}
-
         <script src="{{ asset('bundles/app/js/jquery.min.js') }}"></script>
         <script src="{{ asset('bundles/app/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('bundles/app/js/blockui.min.js') }}"></script>
-
         <script src="{{ asset('bundles/app/js/app.js') }}"></script>
         <script src="{{ asset('bundles/app/js/dashboard.js') }}"></script>
     {% endblock %}
@@ -394,7 +392,6 @@
             </div>
             <!-- /user menu -->
 
-
             <!-- Main navigation -->
             <div class="card card-sidebar-mobile">
                 <ul class="nav nav-sidebar" data-nav-type="accordion">
@@ -412,13 +409,11 @@
                     <li class="nav-item nav-item-submenu">
                         <a href="#" class="nav-link"><i class="fa fa-copy"></i> <span> Declarations P</span></a>
                         <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                            <li class="nav-item"><a href="#" class="nav-link active">Debut d'activité</a></li>
+                            <li class="nav-item"><a href="{{ path('exploitant_new') }}" class="nav-link active">Création</a></li>
                         </ul>
                     </li>
-
                 </ul>
             </div>
-
         </div>
 
     </div>

@@ -1,0 +1,12 @@
+    <div class="col-md-6">
+        <div class="form-group">
+            {{ form_errors(form.titreSejour, {'attr': {'class' : 'validation-invalid-label'}}) }}
+            {{ form_row(form.titreSejour, {'attr': {'class':'form-control'}}) }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            {{ form_errors(form.dateValidate, {'attr': {'class' : 'validation-invalid-label'}}) }}
+            {{ form_row(form.dateValidate) }}
+        </div>
+    </div>
