@@ -80,8 +80,17 @@ class Etablissement
      */
     public function __construct()
     {
-        $this->precExploit = array();
-        $this->loueurFond = array();
+        $this->precExploit = array(
+            'nom' => '',
+            'prenom' => '',
+            'adresse' => '',
+            'rccm' => '',
+        );
+        $this->loueurFond = array(
+            'nom' => '',
+            'denomination' => '',
+            'adresse' => '',
+        );
         $this->principale = false;
         $this->dateCreat = new \DateTime('now');
         $this->dateModif = new \DateTime('now');

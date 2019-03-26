@@ -1,0 +1,88 @@
+{% block etablissement_widget %}
+    {% spaceless %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_errors(form.localisation, {'attr': {'class' : 'validation-invalid-label'}}) }}
+                    {{ form_row(form.localisation, {'attr': {'class' : 'form-control'}}) }}
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_errors(form.adressePostal, {'attr': {'class' : 'validation-invalid-label'}}) }}
+                    {{ form_row(form.adressePostal, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_errors(form.origine, {'attr': {'class' : 'validation-invalid-label'}}) }}
+                    {{ form_row(form.origine, {'attr': {'class' : 'form-control'}}) }}
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_errors(form.precExploitNom, {'attr': {'class' : 'validation-invalid-label'}}) }}
+                    {{ form_row(form.precExploitNom, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_errors(form.precExploitPrenom, {'attr': {'class' : 'validation-invalid-label'}}) }}
+                    {{ form_row(form.precExploitPrenom, {'attr': {'class' : 'form-control'}}) }}
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_errors(form.precExploitAdresse, {'attr': {'class' : 'validation-invalid-label'}}) }}
+                    {{ form_row(form.precExploitAdresse, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_errors(form.precExploitRccm, {'attr': {'class' : 'validation-invalid-label'}}) }}
+                    {{ form_row(form.precExploitRccm, {'attr': {'class' : 'form-control'}}) }}
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_errors(form.loueurFondNom, {'attr': {'class' : 'validation-invalid-label'}}) }}
+                    {{ form_row(form.loueurFondNom, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_errors(form.loueurFondDenomination, {'attr': {'class' : 'validation-invalid-label'}}) }}
+                    {{ form_row(form.loueurFondDenomination, {'attr': {'class' : 'form-control'}}) }}
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form_errors(form.loueurFondAdresse, {'attr': {'class' : 'validation-invalid-label'}}) }}
+                    {{ form_row(form.loueurFondAdresse, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    {{ form_errors(form.etatModif, {'attr': {'class' : 'validation-invalid-label'}}) }}
+                    {{ form_row(form.etatModif, {'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock etablissement_widget %}
+

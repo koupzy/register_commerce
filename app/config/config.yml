@@ -38,6 +38,7 @@ twig:
     form_themes:
         - 'form/date.html.twig'
         - 'form/time.html.twig'
+        - 'form/etablissement.html.twig'
 
 # Doctrine Configuration
 doctrine:

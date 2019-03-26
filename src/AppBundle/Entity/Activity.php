@@ -52,7 +52,7 @@ class Activity
     private $transfert;
 
     /**
-     * @var \DateTime $dateDebut
+     * @var Assert\Date
      * @ORM\Column(type="datetime")
      * @Assert\NotNull(message="ce champ est obligatoire ")
      * @Assert\NotBlank(message="veuillez saisir ce champ")
@@ -78,7 +78,7 @@ class Activity
     private $nbreSalarie;
 
     /**
-     * @var array $engageurs
+     * @var array $engageurs|null
      * @ORM\Column(type="array")
      */
     private $engageurs;
@@ -104,7 +104,14 @@ class Activity
     public function __construct()
     {
         $this->transfert = false;
-        $this->engageurs = Array();
+        $this->engageurs = Array(
+            'nom' => null,
+            'prenom' => null,
+            'domicile' => null,
+            'lieuNaiss' => null,
+            'dateNaiss' => null,
+            'nationalite' => null,
+        );
         $this->etablissements = new ArrayCollection();
         $this->dateCreat = new \DateTime('now');
         $this->dateModif = new \DateTime('now');
@@ -175,17 +182,17 @@ class Activity
     }
 
     /**
-     * @return \DateTime
+     * @return Assert\Date
      */
-    public function getDateDebut(): ?\DateTime
+    public function getDateDebut(): ?Assert\Date
     {
         return $this->dateDebut;
     }
 
     /**
-     * @param \DateTime $dateDebut
+     * @param  $dateDebut
      */
-    public function setDateDebut(\DateTime $dateDebut)
+    public function setDateDebut( $dateDebut)
     {
         $this->dateDebut = $dateDebut;
     }
@@ -233,7 +240,7 @@ class Activity
     /**
      * @param array $engageurs
      */
-    public function setEngageurs(array $engageurs)
+    public function setEngageurs( $engageurs)
     {
         $this->engageurs = $engageurs;
     }

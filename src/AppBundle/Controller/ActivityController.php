@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Activity;
 use AppBundle\Entity\Exploitant;
+use AppBundle\Form\ActivityType;
 use AppBundle\Form\ExploitantType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -134,5 +135,32 @@ class ActivityController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     * @param Request $request
+     * @param Exploitant $exploitant
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/{id}/exploitant", name="activity_by_exploitant")
+     * @Method({"GET", "POST"})
+     */
+    public function activityByExploitant(Request $request, Exploitant $exploitant)
+    {
+        $activity = new Activity();
+        $activity->setExploitant($exploitant);
+        $form = $this->createForm(ActivityType::class,$activity);
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+            if ($form->isValid() && $form->isSubmitted()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($activity);
+                $em->flush();
+                // return $this->redirectRoute('');
+            }
+        }
+        return $this->render('@App/activity/activity_by_exploitant.html.twig',[
+            'form' => $form->createView(),
+            'exploitant' => $exploitant
+        ]);
     }
 }
